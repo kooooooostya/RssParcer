@@ -14,7 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main"
+        class="com.example.rssparcer.MainFragment"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

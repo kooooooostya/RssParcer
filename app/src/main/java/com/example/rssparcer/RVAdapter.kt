@@ -9,19 +9,19 @@ import com.example.rssparcer.databinding.RvItemBinding
 import com.example.rssparcer.tools.RssItem
 import com.squareup.picasso.Picasso
 
-class RVAdapter(private val rssItemsProvider: RssItemsProvider) : RecyclerView.Adapter<RVAdapter.RssViewHolder>() {
+class RVAdapter(private val data: ArrayList<RssItem>) : RecyclerView.Adapter<RVAdapter.RssViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RssViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_item, parent, true)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_item, parent, false)
         return RssViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: RssViewHolder, position: Int) {
-        holder.bindCrypto(rssItemsProvider.getArrayList()[position])
+        holder.bindCrypto(data[position])
     }
 
     override fun getItemCount(): Int {
-        return rssItemsProvider.getArrayList().size
+        return data.size
     }
 
 
@@ -38,7 +38,10 @@ class RVAdapter(private val rssItemsProvider: RssItemsProvider) : RecyclerView.A
 
             rvItemBinding.newsText.text = rssItem.description
 
-            Picasso.get().load(rssItem.image).into(rvItemBinding.newsImage)
+            if (rssItem.image != ""){
+                Picasso.get().load(rssItem.image).into(rvItemBinding.newsImage)
+            }
+
 
             rvItemBinding.showArticle.setOnClickListener{
                 Toast.makeText(it.context, "Not yet implemented", Toast.LENGTH_SHORT).show()

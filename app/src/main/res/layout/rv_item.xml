@@ -75,7 +75,11 @@
                 android:layout_marginStart="@dimen/large_padding"
                 android:layout_marginTop="@dimen/large_padding"
                 android:layout_marginBottom="@dimen/large_padding"
-                android:background="?android:attr/selectableItemBackground"
+
+                android:background="@drawable/read_article_background"
+
+                android:padding="4dp"
+
                 android:text="@string/read_the_article"
                 android:textSize="@dimen/smal_size"
                 android:gravity="start"
