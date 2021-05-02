@@ -1,9 +1,10 @@
 package com.example.rssparcer
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rssparcer.databinding.RvItemBinding
 import com.example.rssparcer.tools.RssItem
@@ -44,7 +45,10 @@ class RVAdapter(private val data: ArrayList<RssItem>) : RecyclerView.Adapter<RVA
 
 
             rvItemBinding.showArticle.setOnClickListener{
-                Toast.makeText(it.context, "Not yet implemented", Toast.LENGTH_SHORT).show()
+
+                val bundle = Bundle()
+                bundle.putString("link", rssItem.link)
+                Navigation.findNavController(it).navigate(R.id.webFragment, bundle)
             }
 
         }
